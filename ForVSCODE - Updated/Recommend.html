@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MLBB Hero Recommender</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #d9a7c7, #fffcdc);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 20px;
+      display: block;
+      text-align: left;
+    }
+
+    select,
+    button {
+      padding: 12px;
+      margin-top: 10px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    select {
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background-color: #2c3e50;
+    }
+
+    .btn-secondary {
+      background-color: #f39c12;
+    }
+
+    .btn-secondary:hover {
+      background-color: #d68910;
+    }
+
+    #result,
+    #randomHero,
+    #teamResult {
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #1e2d3a;
+      background: #e8f4ff;
+      padding: 12px;
+      border-radius: 8px;
+      border-left: 5px solid #3498db;
+      text-align: left;
+    }
+
+    hr {
+      margin: 30px 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+
+    p {
+      font-size: 0.95em;
+      color: #444;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .back-button {
+      background-color: #95a5a6;
+    }
+
+    .back-button:hover {
+      background-color: #7f8c8d;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="section">
+      <h2>Hero Recommender</h2>
+      <label for="playstyle">Choose Your Playstyle:</label>
+      <select id="playstyle">
+        <option value="">--Select--</option>
+        <option value="aggressive">I like to rush and deal burst damage</option>
+        <option value="team">I want to protect and support the team</option>
+        <option value="solo">I prefer farming and carrying in the late game</option>
+        <option value="ambush">I like sneaky plays and assassinations</option>
+        <option value="tanky">I love soaking up damage and initiating fights</option>
+      </select>
+      <button onclick="recommendHero()">Get Hero Recommendation</button>
+      <div id="result"></div>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>I'm Bored!</h2>
+      <p>Feeling indecisive? Let us pick a hero for you.</p>
+      <button class="btn-secondary" onclick="randomHero()">Choose a Random Hero</button>
+      <div id="randomHero"></div>
+    </div>
+
+    <hr>
+
+    <div class="section">
+      <h2>Random Team Generator</h2>
+      <p>Play a match with a team of 5 randomly selected heroes!</p>
+      <button onclick="generateTeam()">Generate Random Team</button>
+      <div id="teamResult"></div>
+    </div>
+
+    <button class="back-button" style="margin-top: 20px;" onclick="window.location.href='FrontPage.html'">Back to
+      Homepage</button>
+  </div>
+
+  <script>
+    function recommendHero() {
+      const style = document.getElementById("playstyle").value;
+      let hero = "";
+
+      switch (style) {
+        case "aggressive":
+          hero = "Roger or Selena";
+          break;
+        case "team":
+          hero = "Estes or Angela";
+          break;
+        case "solo":
+          hero = "Yi Sun Shin or Aulus";
+          break;
+        case "ambush":
+          hero = "Ling or Hayabusa";
+          break;
+        case "tanky":
+          hero = "Lapu Lapu or Uranus";
+          break;
+        default:
+          hero = "Please select a playstyle!";
+      }
+
+      document.getElementById("result").innerText = "Recommended Hero: " + hero;
+    }
+
+    function randomHero() {
+      const heroes = [
+        "Lancelot", "Vale", "Estes", "Angela", "Beatrix", "Granger",
+        "Natalia", "Hayabusa", "Tigreal", "Fredrinn", "Fanny", "Yve",
+        "Paquito", "Khufra", "Moskov", "Pharsa", "Chou", "Lesley",
+        "Alucard", "Eudora", "Gusion", "Zilong", "Lunox", "Aamon",
+        "Benedetta", "Claude", "Harith", "Ruby", "X.Borg", "Akai"
+      ];
+      const picked = heroes[Math.floor(Math.random() * heroes.length)];
+      document.getElementById("randomHero").innerText = "Try playing: " + picked;
+    }
+
+    function generateTeam() {
+      const heroes = [
+        "Lancelot", "Vale", "Estes", "Angela", "Beatrix", "Granger",
+        "Natalia", "Hayabusa", "Tigreal", "Fredrinn", "Fanny", "Yve",
+        "Paquito", "Khufra", "Moskov", "Pharsa", "Chou", "Lesley",
+        "Alucard", "Eudora", "Gusion", "Zilong", "Lunox", "Aamon",
+        "Benedetta", "Claude", "Harith", "Ruby", "X.Borg", "Akai"
+      ];
+
+      let team = [];
+      while (team.length < 5) {
+        const randomIndex = Math.floor(Math.random() * heroes.length);
+        const selectedHero = heroes[randomIndex];
+        if (!team.includes(selectedHero)) {
+          team.push(selectedHero);
+        }
+      }
+
+      let resultText = "Your Random Team:<br>";
+      for (let i = 0; i < team.length; i++) {
+        resultText += (i + 1) + ". " + team[i] + "<br>";
+      }
+
+      document.getElementById("teamResult").innerHTML = resultText;
+    }
+  </script>
+
+</body>
+
+</html>

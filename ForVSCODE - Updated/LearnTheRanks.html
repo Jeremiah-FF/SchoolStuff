@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MLBB Rank Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2c094;
+      color: #333;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .rank-guide {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #f1dbc7;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    label,
+    select {
+      display: block;
+      margin: 15px auto;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    select {
+      padding: 10px;
+      width: 60%;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      background-color: #fff7ed;
+      color: #333;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease-in-out;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #e67e22;
+      box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.3);
+    }
+
+    .rank-info {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .rank-info img {
+      width: 100px;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .rank-text {
+      max-width: 600px;
+    }
+
+    button {
+      background-color: #e67e22;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #cf711f;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Mobile Legends Rank Guide</h1>
+
+  <div class="rank-guide">
+    <label for="rankSelect">Select a Rank to Learn More:</label>
+    <select id="rankSelect" onchange="showRankInfo()">
+      <option value="">-- Choose Rank --</option>
+      <option value="warrior">Warrior</option>
+      <option value="elite">Elite</option>
+      <option value="master">Master</option>
+      <option value="grandmaster">Grandmaster</option>
+      <option value="epic">Epic</option>
+      <option value="legend">Legend</option>
+      <option value="mythic">Mythic</option>
+      <option value="honor">Mythical Honor</option>
+      <option value="glory">Mythical Glory</option>
+      <option value="immortal">Mythical Immortal</option>
+    </select>
+
+    <div id="rankInfo" class="rank-info" style="display:none;">
+      <img id="rankImage" src="" alt="Rank Image">
+      <div class="rank-text" id="rankDescription"></div>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 30px;">
+    <button onclick="window.location.href='FrontPage.html'">Back to Homepage</button>
+  </div>
+  <script>
+    function showRankInfo() {
+      const rank = document.getElementById("rankSelect").value;
+      const image = document.getElementById("rankImage");
+      const description = document.getElementById("rankDescription");
+      const infoBox = document.getElementById("rankInfo");
+
+      let imgSrc = "";
+      let text = "";
+
+      switch (rank) {
+        case "warrior":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/9/97/Warrior.png";
+          text = "Warrior is the starting rank for new players. Games are easy, and players are learning mechanics and roles.";
+          break;
+        case "elite":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/e/e3/Elite.png";
+          text = "Elite is a low-tier rank where players start to understand positioning and simple combos.";
+          break;
+        case "master":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/6/6b/Master.png";
+          text = "Master introduces a bit more competitiveness. Most players understand basic team play.";
+          break;
+        case "grandmaster":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/2/28/Grandmaster.png";
+          text = "Grandmaster is where better hero knowledge, laning, and counter picks start to matter.";
+          break;
+        case "epic":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/2/26/Epic.png";
+          text = "Epic rank introduces the draft pick system. Bans and meta awareness start here.";
+          break;
+        case "legend":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/2/26/Epic.png";
+          text = "Legend rank players usually have strong coordination and solid mechanics.";
+          break;
+        case "mythic":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/e/ec/Mythic.png";
+          text = "Mythic is the top-tier rank for advanced players. Game sense, rotation, and team strategy are crucial.";
+          break;
+        case "honor":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/c/c8/Mythical_Honor.png";
+          text = "Mythical Honor is for players with high win streaks, showing consistency and mastery.";
+          break;
+        case "glory":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/4/42/Mythical_Glory.png";
+          text = "Mythical Glory is where only elite players with outstanding performance shine.";
+          break;
+        case "immortal":
+          imgSrc = "https://static.wikia.nocookie.net/mobile-legends/images/3/3c/Mythical_Immortal.png";
+          text = "Mythical Immortal is the peak of competitive MLBB. It's reserved for the best of the best.";
+          break;
+        default:
+          imgSrc = "";
+          text = "";
+      }
+
+      if (rank !== "") {
+        image.src = imgSrc;
+        description.textContent = text;
+        infoBox.style.display = "flex";
+      } else {
+        infoBox.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
