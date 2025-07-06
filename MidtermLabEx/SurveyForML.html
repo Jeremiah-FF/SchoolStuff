@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MLBB Player Survey</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #b2f0e3, #fceabb);
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    form {
+      background: #ffffff;
+      padding: 30px;
+      max-width: 700px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1em;
+      color: #555;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 0.95em;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #28a745;
+      outline: none;
+    }
+
+    fieldset {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background-color: #fafafa;
+    }
+
+    legend {
+      font-weight: bold;
+      padding: 0 10px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 8px;
+      transform: scale(1.1);
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 20px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background: #218838;
+    }
+
+    button[type="button"] {
+      background: #dc3545;
+      margin-left: 10px;
+    }
+
+    button[type="button"]:hover {
+      background: #c82333;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <form id="googleForm">
+    <h2 style="text-align:center;">MLBB Player Survey</h2>
+    <p style="text-align:center;">Help us understand how age, experience, and role preference affect performance in
+      Mobile Legends!</p>
+
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="gender">Gender</label>
+    <select name="gender" id="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <fieldset>
+      <legend>Age Group</legend>
+      <label><input type="radio" name="ageGroup" value="Under 18" required> Under 18</label>
+      <label><input type="radio" name="ageGroup" value="18-25"> 18-25</label>
+      <label><input type="radio" name="ageGroup" value="25-30"> 25-30 </label>
+      <label><input type="radio" name="ageGroup" value="30-39"> 30-39</label>
+      <label><input type="radio" name="ageGroup" value="40-50"> 40-50</label>
+      <label><input type="radio" name="ageGroup" value="51+"> 51+</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Rank</legend>
+      <label><input type="radio" name="rank" value="MasterOrBelow" required> Master or below</label>
+      <label><input type="radio" name="rank" value="Grandmaster"> Grandmaster</label>
+      <label><input type="radio" name="rank" value="Epic to legend"> Epic to legend</label>
+      <label><input type="radio" name="rank" value="mythic"> Mythic</label>
+      <label><input type="radio" name="rank" value="Mythical Honor"> Mythical Honor</label>
+      <label><input type="radio" name="rank" value="Glory+"> Glory+</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Years of Playtime</legend>
+      <label><input type="radio" name="playtime" value="6months" required> 6 months or less</label>
+      <label><input type="radio" name="playtime" value="-1"> less than 1 year</label>
+      <label><input type="radio" name="playtime" value="1-2 years"> 1-2 years</label>
+      <label><input type="radio" name="playtime" value="3-4 years"> 3-4 years</label>
+      <label><input type="radio" name="playtime" value="5-6 years"> 5-6 years</label>
+      <label><input type="radio" name="playtime" value="7+ years"> 7+ years</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Main Roles</legend>
+      <label><input type="checkbox" name="roles" value="Fighter" required> Fighter</label>
+      <label><input type="checkbox" name="roles" value="Assassin"> Assassin</label>
+      <label><input type="checkbox" name="roles" value="Marksman"> Marksman</label>
+      <label><input type="checkbox" name="roles" value="Mage"> Mage</label>
+      <label><input type="checkbox" name="roles" value="Support"> Support</label>
+      <label><input type="checkbox" name="roles" value="Tank"> Tank</label>
+    </fieldset>
+
+    <label for="comments">Comments</label>
+    <textarea name="comments" id="comments" rows="4"></textarea>
+
+    <button type="submit">Submit</button>
+    <button type="button" onclick="window.location.href='FrontPage.html'">Cancel</button>
+  </form>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzHbAcR1VlWuneqDJAA3GZNMnaamA2J969BNK48PQ-COZoJo_EJRXa3OsEz7OGRVXpgxw/exec'; // Replace with actual script URL
+    const form = document.getElementById('googleForm');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          alert("Form submitted successfully!");
+          form.reset();
+          window.location.href = 'FrontPage.html';
+        })
+        .catch(error => alert('Error!', error.message));
+    });
+
+  </script>
+
+</body>
+
+</html>
